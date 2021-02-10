@@ -1,0 +1,2 @@
+# adsManager
+Test task
