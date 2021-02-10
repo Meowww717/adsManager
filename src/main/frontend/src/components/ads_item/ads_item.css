@@ -1,0 +1,14 @@
+.ads-item {
+    border-radius: 15px;
+    background-color: rgba(80, 80, 80, 0.5);
+    padding: 20px;
+}
+
+.ads-item > img {
+    height: 150px;
+}
+
+.container {
+    padding: 20px;
+    font-size: 18px;
+}

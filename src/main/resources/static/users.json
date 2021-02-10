@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "username": "user_a",
+      "password": "{bcrypt}$2a$10$m2DEp/A.xd8jWB3XqlMWeesgYEL78KqRYdFSfmWW3dgVHo/QmZY76"
+    },
+    {
+      "username": "user_b",
+      "password": "{bcrypt}$2a$10$m2DEp/A.xd8jWB3XqlMWeesgYEL78KqRYdFSfmWW3dgVHo/QmZY76"
+    }
+  ]
+}
+
