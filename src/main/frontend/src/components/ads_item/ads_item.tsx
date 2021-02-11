@@ -1,5 +1,6 @@
 import React from "react";
 import "./ads_item.css";
+import APIService from "../../services/APIService";
 
 export default class AdsItem extends React.Component {
 
@@ -8,12 +9,15 @@ export default class AdsItem extends React.Component {
         super(props);
 
         this.state = {
-            status: "pending"
+            status: props.status
         }
     }
 
     onApproved = () => {
+        // @ts-ignore
+        const { src, id, name, date } = this.props;
         this.setState({status: "approved"});
+        APIService.put({id, name, date, src, status: "approved"});
         // @ts-ignore
         let buttons = document.getElementById(this.props.id).querySelectorAll("button");
         buttons.forEach(el => {
@@ -22,7 +26,10 @@ export default class AdsItem extends React.Component {
     }
 
     onRejected = () => {
+        // @ts-ignore
+        const { src, id, name, date } = this.props;
         this.setState({status: "rejected"});
+        APIService.put({id, name, date, src, status: "rejected"});
         // @ts-ignore
         let buttons = document.getElementById(this.props.id).querySelectorAll("button");
         buttons.forEach(el => {

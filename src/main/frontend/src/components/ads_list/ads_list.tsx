@@ -14,7 +14,7 @@ export default class AdsList extends Component {
 
     componentDidMount(){
         APIService.getAds().then((resp) => {
-            this.setState({ ads: resp.data.ads })
+            this.setState({ ads: resp.data })
             // @ts-ignore
             console.log(this.state.ads);
         })
@@ -27,7 +27,7 @@ export default class AdsList extends Component {
         // @ts-ignore
         const ads = this.state.ads.map(el => {
             // @ts-ignore
-            return <AdsItem key={el.id} id={el.id} name={el.name} date={el.date} src={el.image}/>;
+            return <AdsItem key={el.id} id={el.id} name={el.name} date={el.date} src={el.image} status={el.status}/>;
         });
         return ads;
     }
