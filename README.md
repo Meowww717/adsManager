@@ -5,3 +5,5 @@
 3. yarn build (в папке "src\main\frontend")
 4. gradle build (в корне проекта)
 5. java -jar ./ads_manager-0.0.1-SNAPSHOT.jar (в папке build\libs)
+
+Demo: https://youtu.be/syjD8rxfd-Q
