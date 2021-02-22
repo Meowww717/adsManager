@@ -1,50 +1,14 @@
 import React from "react";
 import "./ads_item.css";
-import APIService from "../../services/APIService";
 
 export default class AdsItem extends React.Component {
 
-    // @ts-ignore
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            status: props.status
-        }
-    }
-
-    onApproved = () => {
-        // @ts-ignore
-        const { src, id, name, date } = this.props;
-        this.setState({status: "approved"});
-        APIService.put({id, name, date, src, status: "approved"});
-        // @ts-ignore
-        let buttons = document.getElementById(this.props.id).querySelectorAll("button");
-        buttons.forEach(el => {
-            el.setAttribute("disabled", "true");
-        });
-    }
-
-    onRejected = () => {
-        // @ts-ignore
-        const { src, id, name, date } = this.props;
-        this.setState({status: "rejected"});
-        APIService.put({id, name, date, src, status: "rejected"});
-        // @ts-ignore
-        let buttons = document.getElementById(this.props.id).querySelectorAll("button");
-        buttons.forEach(el => {
-            el.setAttribute("disabled", "true");
-        });
-    }
-
-    // @ts-ignore
     render() {
-        // @ts-ignore
-        const {src, id, name, date} = this.props;
-        // @ts-ignore
-        const status = this.state.status;
+        const {src, id, name, date, status} = this.props;
+        const className = status === 'Approved' ? 'hide' : 'ads-item';
+        
         return (
-            <div className="ads-item">
+            <div className={className}>
                 <img src={src.toString()} className="img-fluid" alt="ads-image" />
                 <div className="container">
                     <div className="row justify-content-around">
@@ -81,8 +45,8 @@ export default class AdsItem extends React.Component {
                     </div>
                 </div>
                 <div id={id} className="btn-group" role="group" aria-label="Basic mixed styles example">
-                    <button onClick={this.onApproved} type="button" className="btn btn-success">Approve</button>
-                    <button onClick={this.onRejected} type="button" className="btn btn-danger">Reject</button>
+                    <button onClick={() => {this.props.onApproved(id)}} disabled={status !== 'pending'} type="button" className="btn btn-success">Approve</button>
+                    <button onClick={() => {this.props.onRejected(id)}} disabled={status !== 'pending'} type="button" className="btn btn-danger">Reject</button>
                 </div>
             </div>
         );

@@ -5,6 +5,9 @@
     align-items: center;
     justify-content: flex-end;
     padding-right: 50px;
+    position: fixed;
+    width: 100%;
+
 }
 
 .logo {
@@ -14,4 +17,8 @@
 .logo .bi-person {
     width: 40px;
     height: 40px;
+}
+
+.statusCount {
+    margin-right: 10px;
 }

@@ -12,3 +12,7 @@
     padding: 20px;
     font-size: 18px;
 }
+
+.hide {
+    display: none;
+}

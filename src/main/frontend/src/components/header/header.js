@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import './header.css';
 
-interface Props {
-    username?: string
-}
-
 export default class Header extends Component {
+
+    constructor(props) {
+        super(props);
+    }
 
     handleLogout() {
         console.log(window.location.search);
@@ -14,8 +14,11 @@ export default class Header extends Component {
     }
 
     render() {
+        const { approved, rejected } = this.props;
         return (
             <div className="header">
+                <div className="statusCount">Approved: {approved} </div>
+                <div className="statusCount">Rejected: {rejected} </div>
                 {/*<div>Username</div>*/}
                 <div className="logo">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
